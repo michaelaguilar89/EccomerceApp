@@ -1,1 +1,22 @@
-<p>products works!</p>
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col"*ngFor="let element of list">
+            <div class="card text-center my-3">
+                <img [src]="element.photos[0]"  alt="..." style="width: 200px;">
+                <div class="card-body">
+                  <h5 class="card-title">Name : {{element.name}}</h5>
+                  <p class="card-text">Description : {{element.description}}</p>
+                  <p class="card-text">Price : {{element.price|currency}}</p>
+                  <button type="button" (click)="addToCar(element)" class="btn btn-success">
+                    <i class="fa-solid fa-cart-shopping fa-beat" ></i>
+                  
+                  </button>
+
+                  
+                </div>
+              </div>
+          
+        </div>
+    </div>
+    
+</div>

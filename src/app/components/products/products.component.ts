@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ProductModel } from 'src/app/models/product.model';
+import { ProductService } from 'src/app/services/product-service';
 
 @Component({
   selector: 'app-products',
@@ -7,4 +9,16 @@ import { Component } from '@angular/core';
 })
 export class ProductsComponent {
 
+  constructor(private service:ProductService){
+
+  }
+  list:any;
+  ngOnInit(){
+    this.list=this.service.getProducts();
+    console.log(this.list);
+  }
+
+  addToCar(element:ProductModel){
+    this.service.addToCar(element);
+  }
 }

@@ -1,1 +1,33 @@
-<p>cart works!</p>
+<div class="conatiner">
+    <div class="row">
+        <div class="col-lg-10">
+            <table class="table">
+                <thead>
+                  <tr>
+                    
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                   
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Image</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor=" let element of list">
+                    <td>{{element.name}}</td>
+                    <td>{{element.price}}</td>
+                    <td>
+                      <button type="button" class="btn btn-primary" (click)="substract(element.id)" > - </button>
+                      {{element.quantity}}
+                      <button type="button" class="btn btn-primary"  (click)="sum(element.id)"> + </button>
+                    </td>
+                    <td>{{element.subTotal}}</td>
+                    <td><img [src]="element.photos[0]" style="width: 50px;"></td>
+                  </tr>                  
+                </tbody>
+                <tfoot style="text-align: right;">Total : 0</tfoot>
+              </table>
+        </div>
+    </div>
+</div>
